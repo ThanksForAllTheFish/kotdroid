@@ -36,7 +36,7 @@ open class DroidConfiguration {
         return restTemplate
     }
 
-    object DefaultX509TrustManager : X509TrustManager {
+    private object DefaultX509TrustManager : X509TrustManager {
         override fun checkClientTrusted(xcs: Array<X509Certificate>, string: String) {}
         override fun checkServerTrusted(xcs: Array<X509Certificate>, string: String) { }
         override fun getAcceptedIssuers() = arrayOf<X509Certificate>()

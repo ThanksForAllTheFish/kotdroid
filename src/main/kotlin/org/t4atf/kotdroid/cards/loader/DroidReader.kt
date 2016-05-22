@@ -1,4 +1,4 @@
-package org.t4atf.kotdroid.data.loader
+package org.t4atf.kotdroid.cards.loader
 
 import com.fasterxml.jackson.databind.JsonNode
 
