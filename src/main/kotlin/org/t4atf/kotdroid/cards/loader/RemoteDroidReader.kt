@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate
 
 @RestController
 @RequestMapping("/api")
-class RemoteDroidReader @Autowired constructor(private val reader: RestTemplate): DroidReader {
+class RemoteDroidReader @Autowired constructor(private val reader: RestTemplate) : DroidReader {
 
     @RequestMapping(path = arrayOf("/cards"), method = arrayOf(RequestMethod.GET), produces = arrayOf("application/json"))
     override fun readCards(): JsonNode {

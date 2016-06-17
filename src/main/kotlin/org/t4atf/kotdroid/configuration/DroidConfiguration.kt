@@ -18,7 +18,7 @@ open class DroidConfiguration {
     open fun restTemplate(): RestTemplate {
         val restTemplate = RestTemplate()
         restTemplate.requestFactory = object : SimpleClientHttpRequestFactory() {
-            override fun prepareConnection(connection : HttpURLConnection, httpMethod : String) {
+            override fun prepareConnection(connection: HttpURLConnection, httpMethod: String) {
                 if (connection is HttpsURLConnection) {
                     connection.hostnameVerifier = HostnameVerifier { p0, p1 -> true }
                     connection.sslSocketFactory = trustSelfSignedSSL().socketFactory
@@ -37,8 +37,12 @@ open class DroidConfiguration {
     }
 
     private object DefaultX509TrustManager : X509TrustManager {
-        override fun checkClientTrusted(xcs: Array<X509Certificate>, string: String) {}
-        override fun checkServerTrusted(xcs: Array<X509Certificate>, string: String) { }
+        override fun checkClientTrusted(xcs: Array<X509Certificate>, string: String) {
+        }
+
+        override fun checkServerTrusted(xcs: Array<X509Certificate>, string: String) {
+        }
+
         override fun getAcceptedIssuers() = arrayOf<X509Certificate>()
     }
 }

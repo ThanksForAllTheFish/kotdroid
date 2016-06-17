@@ -34,7 +34,7 @@ class KotdroidApplicationTests {
     @Test
     fun contextLoads() {
         mockMvc.perform(get("/api/cards"))
-            .andExpect(status().isOk)
-            .andReturn()
+                .andExpect(status().isOk)
+                .andReturn()
     }
 }
