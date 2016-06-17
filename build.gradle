@@ -1,55 +1,41 @@
 buildscript {
 	ext {
 		springBootVersion = '1.3.4.RELEASE'
-		kotlinVersion = '1.0.1-2'
+		kotlinVersion = '1.0.2-1'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 	}
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot' 
-
-jar {
-	baseName = 'kotdroid'
-	version = '0.0.1-SNAPSHOT'
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
+allprojects {
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.14'
+    }
 }
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-actuator-docs')
-	compile('org.springframework.cloud:spring-cloud-starter-hystrix')
-	compile('org.projectlombok:lombok:1.16.6')
-	compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
-	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-}
+subprojects {
+    version = "0.0.1-SNAPSHOT"
 
-dependencyManagement {
-	imports { 
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.RC2" 
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
 	}
-}
 
+	apply plugin: 'kotlin'
+	apply plugin: 'eclipse'
+	apply plugin: 'spring-boot'
+    apply plugin: 'idea'
 
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
+    eclipse {
+        classpath {
+            containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+            containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+        }
+    }
 }
