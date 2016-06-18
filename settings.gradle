@@ -1,1 +1,1 @@
-include 'game'//, 'spring-boot-starter-data-orientdb'
+include 'game', 'orientdb-spring-boot-starter-data'
