@@ -21,8 +21,8 @@ class RemoteDroidReader @Autowired constructor(private val reader: RestTemplate)
     override fun <T : Card> readCards(): Cards<T> {
 
         return Cards(
-            reader.exchange("https://netrunnerdb.com/api/cards", HttpMethod.GET, HttpEntity.EMPTY, object : ParameterizedTypeReference<JsonNode>() {}).body
-                .toList()
-                .map { generates<T>(it) })
+                reader.exchange("https://netrunnerdb.com/api/cards", HttpMethod.GET, HttpEntity.EMPTY, object : ParameterizedTypeReference<JsonNode>() {}).body
+                        .toList()
+                        .map { generates<T>(it) })
     }
 }

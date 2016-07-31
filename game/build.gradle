@@ -1,22 +1,21 @@
 jar {
-	baseName = 'kotdroid'
+    baseName = 'kotdroid'
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-actuator-docs')
-	compile('org.springframework.cloud:spring-cloud-starter-hystrix')
-	compile('org.projectlombok:lombok:1.16.6')
-	compile('com.orientechnologies:spring-data-orientdb-parent:0.11')
-	compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-	testCompile('org.springframework.boot:spring-boot-starter-test') 
-	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-	testCompile('com.jayway.jsonpath:json-path:2.2.0')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-actuator-docs')
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
+    compile('com.orientechnologies:spring-data-orientdb-parent:0.11')
+    compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+    testCompile('com.jayway.jsonpath:json-path:2.2.0')
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.RC2"
-	}
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.SR4"
+    }
 }

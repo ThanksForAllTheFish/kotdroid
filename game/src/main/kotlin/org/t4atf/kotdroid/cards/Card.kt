@@ -41,4 +41,4 @@ data class Agenda(val base: BaseCard, val advancementTokens: Int, val agendaPoin
 
 data class Operation(val base: BaseGameCard) : Card
 
-data class Cards<T : Card>(val cards : List<T>)
+data class Cards<out T : Card>(val cards: List<T>)
