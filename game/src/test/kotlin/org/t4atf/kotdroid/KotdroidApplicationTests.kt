@@ -1,5 +1,6 @@
 package org.t4atf.kotdroid
 
+import org.hamcrest.Matchers.greaterThan
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -9,9 +10,8 @@ import org.springframework.boot.test.WebIntegrationTest
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder
 import org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup
 import org.springframework.web.context.WebApplicationContext
 
@@ -27,14 +27,16 @@ class KotdroidApplicationTests {
     @Before
     fun setup() {
         mockMvc = webAppContextSetup(this.context)
-                .alwaysDo<DefaultMockMvcBuilder>(print())
+                //.alwaysDo<DefaultMockMvcBuilder>(MockMvcResultHandlers.print())
                 .build()
     }
 
     @Test
     fun contextLoads() {
+
         mockMvc.perform(get("/api/cards"))
-                .andExpect(status().isOk)
+                .andExpect { status().isOk }
+                .andExpect { jsonPath("$.cards.length()").value(greaterThan(0)) }
                 .andReturn()
     }
 }

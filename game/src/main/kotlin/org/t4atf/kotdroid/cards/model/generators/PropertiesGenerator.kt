@@ -26,7 +26,7 @@ private fun generatesBaseGameCard(card: JsonNode): BaseGameCard = BaseGameCard(g
         card.get("cost").asInt(), card.get("factioncost").asInt(), card.get("limited").asInt())
 
 private fun generatesBaseCard(card: JsonNode): BaseCard = BaseCard(
-        GameData(card.get("subtype_code").asText().split("-").map { it.trim() }.toSet(),
+        GameData(card.get("subtype_code").asText().split(" - ").map { it.trim() }.toSet(),
                 Faction(card.get("faction_code").asText(), card.get("faction_letter").asText()),
                 card.get("side_code").asText(), card.get("text")?.asText() ?: "", card.get("uniqueness")?.asBoolean() ?: false),
         Metadata(LocalDateTime.parse(card.get("last-modified").asText(), DateTimeFormatter.ISO_OFFSET_DATE_TIME), card.get("code").asText(), card.get("title").asText(), card.get("number").asInt(),

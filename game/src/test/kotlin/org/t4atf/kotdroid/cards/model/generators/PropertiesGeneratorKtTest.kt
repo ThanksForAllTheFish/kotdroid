@@ -53,7 +53,7 @@ class PropertiesGeneratorKtTest {
         Assert.assertThat(generates(jsonNodeFrom("identity.json")),
                 Matchers.`is`(Identity(
                         BaseCard(
-                                GameData(setOf("megacorp"), Faction("weyland-consortium", "w"), "corp", "Gain 1[Credits] whenever you play a <strong>transaction</strong> operation.", false),
+                                GameData(setOf("megacorp-single"), Faction("weyland-consortium", "w"), "corp", "Gain 1[Credits] whenever you play a <strong>transaction</strong> operation.", false),
                                 Metadata(LocalDateTime.parse("2016-04-21T18:43:24+00:00", DateTimeFormatter.ISO_OFFSET_DATE_TIME), "01093", "Weyland Consortium: Building a Better World", 93, 1, "core", "core", 1)),
                         15, 45) as Card)
         )
@@ -65,7 +65,7 @@ class PropertiesGeneratorKtTest {
                 Matchers.`is`(Program(
                         BaseGameCard(
                                 BaseCard(
-                                        GameData(setOf("virus"), Faction("anarch", "a"), "runner", "Place 2 virus counters on Imp when it is installed.\nOnce per turn, you may remove 1 hosted virus counter to trash a card you access at no cost (even if it cannot normally be trashed).", false),
+                                        GameData(setOf("virus", "double"), Faction("anarch", "a"), "runner", "Place 2 virus counters on Imp when it is installed.\nOnce per turn, you may remove 1 hosted virus counter to trash a card you access at no cost (even if it cannot normally be trashed).", false),
                                         Metadata(LocalDateTime.parse("2016-04-27T18:36:15+00:00", DateTimeFormatter.ISO_OFFSET_DATE_TIME), "02003", "Imp", 3, 3, "wla", "genesis", 2)),
                                 2, 3, 3),
                         1, 0) as Card

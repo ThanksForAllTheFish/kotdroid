@@ -5,7 +5,7 @@
   "type": "Program",
   "type_code": "program",
   "subtype": "Virus",
-  "subtype_code": "virus",
+  "subtype_code": "virus - double",
   "text": "Place 2 virus counters on Imp when it is installed.\nOnce per turn, you may remove 1 hosted virus counter to trash a card you access at no cost (even if it cannot normally be trashed).",
   "cost": 2,
   "faction": "Anarch",

@@ -1,8 +1,9 @@
 package org.t4atf.kotdroid.cards.loader
 
-import com.fasterxml.jackson.databind.JsonNode
+import org.t4atf.kotdroid.cards.Card
+import org.t4atf.kotdroid.cards.Cards
 
 interface DroidReader {
 
-    fun readCards(): JsonNode
+    fun <T : Card> readCards(): Cards<T>
 }

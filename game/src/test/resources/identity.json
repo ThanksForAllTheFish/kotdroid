@@ -5,7 +5,7 @@
   "type": "Identity",
   "type_code": "identity",
   "subtype": "Megacorp",
-  "subtype_code": "megacorp",
+  "subtype_code": "megacorp-single",
   "text": "Gain 1[Credits] whenever you play a <strong>transaction</strong> operation.",
   "faction": "Weyland Consortium",
   "faction_code": "weyland-consortium",

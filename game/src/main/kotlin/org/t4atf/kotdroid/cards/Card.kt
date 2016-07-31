@@ -40,3 +40,5 @@ data class Upgrade(val base: BaseGameCard) : Card
 data class Agenda(val base: BaseCard, val advancementTokens: Int, val agendaPoints: Int, val limited: Int) : Card
 
 data class Operation(val base: BaseGameCard) : Card
+
+data class Cards<T : Card>(val cards : List<T>)
